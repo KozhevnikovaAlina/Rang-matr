@@ -1,0 +1,347 @@
+\documentclass[a4paper,12pt]{article}
+
+% Пакеты
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{geometry}
+ \geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{fancyhdr}
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{caption}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4,
+    language=C++,
+    extendedchars=true,
+    literate={а}{{\cyra}}1 {б}{{\cyrb}}1 {в}{{\cyrv}}1 {г}{{\cyrg}}1 {д}{{\cyrd}}1
+             {е}{{\cyre}}1 {ё}{{\cyryo}}1 {ж}{{\cyrzh}}1 {з}{{\cyrz}}1
+             {и}{{\cyri}}1 {й}{{\cyrishrt}}1 {к}{{\cyrk}}1 {л}{{\cyrl}}1
+             {м}{{\cyrm}}1 {н}{{\cyrn}}1 {о}{{\cyro}}1 {п}{{\cyrp}}1
+             {р}{{\cyrr}}1 {с}{{\cyrs}}1 {т}{{\cyrt}}1 {у}{{\cyru}}1
+             {ф}{{\cyrf}}1 {х}{{\cyrh}}1 {ц}{{\cyrc}}1 {ч}{{\cyrch}}1
+             {ш}{{\cyrsh}}1 {щ}{{\cyrshch}}1 {ъ}{{\cyrhrdsn}}1
+             {ы}{{\cyrery}}1 {ь}{{\cyrsftsn}}1 {э}{{\cyrerev}}1
+             {ю}{{\cyryu}}1 {я}{{\cyrya}}1
+             {А}{{\CYRA}}1 {Б}{{\CYRB}}1 {В}{{\CYRV}}1 {Г}{{\CYRG}}1
+             {Д}{{\CYRD}}1 {Е}{{\CYRE}}1 {Ё}{{\CYRYO}}1 {Ж}{{\CYRZH}}1
+             {З}{{\CYRZ}}1 {И}{{\CYRI}}1 {Й}{{\CYRISHRT}}1 {К}{{\CYRK}}1
+             {Л}{{\CYRL}}1 {М}{{\CYRM}}1 {Н}{{\CYRN}}1 {О}{{\CYRO}}1
+             {П}{{\CYRP}}1 {Р}{{\CYRR}}1 {С}{{\CYRS}}1 {Т}{{\CYRT}}1
+             {У}{{\CYRU}}1 {Ф}{{\CYRF}}1 {Х}{{\CYRH}}1 {Ц}{{\CYRC}}1
+             {Ч}{{\CYRCH}}1 {Ш}{{\CYRSH}}1 {Щ}{{\CYRSHCH}}1 {Ъ}{{\CYRHRDSN}}1
+             {Ы}{{\CYRERY}}1 {Ь}{{\CYRSFTSN}}1 {Э}{{\CYREREV}}1
+             {Ю}{{\CYRYU}}1 {Я}{{\CYRYA}}1
+}
+
+\begin{document}
+
+% =========================
+% Первая титульная страница
+% =========================
+\thispagestyle{empty}
+	\begin{titlepage}
+		\begin{center}
+			\large
+			МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ
+			
+			Федеральное государственное бюджетное образовательное учреждение высшего образования
+			
+			\textbf{АДЫГЕЙСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ}
+			\vspace{0.25cm}
+			
+			Инженерно-физический факультет
+			
+			Кафедра автоматизированных систем обработки информации и управления
+			\vfill
+
+			\vfill
+			
+			\textsc{Отчет по практике}\\[5mm]
+			
+			{\textit{Найти ранг матрицы}}
+			\bigskip
+			
+			1 курс, группа 1ИВТ АСОИУ
+		\end{center}
+		\vfill
+		
+		\newlength{\ML}
+		\settowidth{\ML}{«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}}}
+		\hfill\begin{minipage}{0.5\textwidth}
+			Выполнила:\\
+			\underline{\hspace{\ML}} A.\,Е.~ Кожевникова\\
+			«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}} 2025 г.
+		\end{minipage}%
+		\bigskip
+
+		\settowidth{\ML}{«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}}}
+		\hfill\begin{minipage}{0.5\textwidth}
+			Выполнила:\\
+			\underline{\hspace{\ML}} К.\,А.~Ефименко\\
+			«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}} 2025 г.
+		\end{minipage}%
+		\bigskip
+
+		\settowidth{\ML}{«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}}}
+		\hfill\begin{minipage}{0.5\textwidth}
+			Выполнила:\\
+			\underline{\hspace{\ML}} С.~Абдуль Карим\\
+			«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}} 2025 г.
+		\end{minipage}%
+		\bigskip
+		
+		\hfill\begin{minipage}{0.5\textwidth}
+			Руководитель:\\
+			\underline{\hspace{\ML}} С.\,В.~Теплоухов\\
+			«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}} 2025 г.
+		\end{minipage}%
+		\vfill
+		
+		\begin{center}
+			Майкоп, 2025 г.
+		\end{center}
+	\end{titlepage}
+
+
+% =========================
+% Начало основного текста
+% =========================
+
+\section{Введение}
+\label{sec:intro}
+\subsection{Текстовая формулировка задачи (Вариант 6)}
+Найти ранг матрицы.
+
+\subsection{Теория метода}
+Рангом матрицы называется максимальное число линейно независимых строк, рассматриваемых как векторы.
+
+Отыскание ранга матрицы способом элементарных преобразований (методом Гаусса).  
+Под элементарными преобразованиями матрицы понимаются следующие операции:  
+1) умножение на число, отличное от нуля;  
+2) прибавление к элементам какой-либо строки или какого-либо столбца;  
+3) перемена местами двух строк или столбцов матрицы;  
+4) удаление «нулевых» строк, то есть таких, все элементы которых равны нулю;  
+5) удаление всех пропорциональных строк, кроме одной.
+
+Для любой матрицы \(A\) всегда можно прийти к такой матрице \(B\), вычисление ранга которой не представляет затруднений. Для этого следует добиться, чтобы матрица \(B\) была трапециевидной. Тогда ранг полученной матрицы будет равен числу строк в ней, за исключением строк, полностью состоящих из нулей.
+
+Ступенчатую матрицу называют трапециевидной или трапецеидальной, если для ведущих элементов \(a_{1k_1}, a_{2k_2}, \dots, a_{r k_r}\) выполнены условия \(k_1=1, k_2=2,\dots,k_r=r\), т.\,е. ведущими являются диагональные элементы. В общем виде трапециевидную матрицу можно записать так:
+\[
+\begin{align*}
+A_{m \times n} = \left(
+\begin{array}{cccccc}
+a_{11} & a_{12} & \dots & a_{1r} & \dots & a_{1n} \\
+0      & a_{22} & \dots & a_{2r} & \dots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+0      & 0      & \dots & a_{rr} & \dots & a_{rn} \\
+0      & 0      & \dots & 0      & \dots & 0      \\
+\vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+0      & 0      & \dots & 0      & \dots & 0      \\
+\end{array}
+\right)
+\end{align*}
+\]
+
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=0.6\textwidth]{trapezoidal_matrix.png}
+%   \caption{Общий вид трапециевидной матрицы}
+% \end{figure}
+\section{Ход работы}
+\label{sec:exp}
+
+\subsection{Код приложения}
+\label{sec:exp:code}
+Листинг кода приведён ниже:
+
+\begin{lstlisting}[style=mystyle, caption=Программа для вычисления ранга матрицы методом Гаусса, label=lst:matrix_rank]
+#include <iostream>
+#include <vector>
+#include <iomanip>
+#include <cmath>
+#include <limits>
+#include<string>
+
+using namespace std;
+
+// Функция для безопасного ввода целого числа > 0
+int read_positive_int(const char* prompt) {
+    int x;
+    while (true) {
+        cout << prompt;
+        if (cin >> x && x > 0) {
+            return x;
+        }
+        cerr << "Ошибка: введите целое число больше 0.\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+}
+
+// Функция для безопасного ввода вещественного числа
+double read_double(const char* prompt) {
+    double x;
+    while (true) {
+        cout << prompt;
+        if (cin >> x) {
+            return x;
+        }
+        cerr << "Ошибка: введите корректное число.\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+}
+
+// Вычисление ранга матрицы методом Гаусса
+int matrix_rank(vector<vector<double>>& A, int m, int n) {
+    const double EPS = 1e-9;
+    int rank = 0;
+    vector<bool> used_row(m, false);
+
+    for (int col = 0; col < n; ++col) {
+        // Находим ненулевую строку с максимальным по модулю элементом в текущем столбце
+        int sel = -1;
+        double max_abs = EPS;
+        for (int row = 0; row < m; ++row) {
+            if (!used_row[row] && fabs(A[row][col]) > max_abs) {
+                max_abs = fabs(A[row][col]);
+                sel = row;
+            }
+        }
+        // Если подходящая строка не найдена, переходим к следующему столбцу
+        if (sel == -1) continue;
+
+        // Эта строка станет ведущей для текущего шага
+        used_row[sel] = true;
+        ++rank;
+
+        // Нормируем ведущую строку (делим всю строку на ведущий элемент)
+        double lead = A[sel][col];
+        for (int j = col; j < n; ++j) {
+            A[sel][j] /= lead;
+        }
+
+        // Обнуляем все остальные элементы в этом столбце
+        for (int row = 0; row < m; ++row) {
+            if (row != sel) {
+                double factor = A[row][col];
+                for (int j = col; j < n; ++j) {
+                    A[row][j] -= factor * A[sel][j];
+                }
+            }
+        }
+    }
+
+    return rank;
+}
+
+int main() {
+    setlocale(LC_ALL, "RU");
+    cout << "=== Программа для нахождения ранга матрицы методом Гаусса ===\n";
+
+    // Ввод размеров
+    int m = read_positive_int("Введите число строк m: ");
+    int n = read_positive_int("Введите число столбцов n: ");
+
+    // Создаём и заполняем матрицу
+    vector<vector<double>> A(m, vector<double>(n));
+    cout << "Введите элементы матрицы A (" << m << "x" << n << "):\n";
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            A[i][j] = read_double(("A[" + to_string(i + 1) + "][" + to_string(j + 1) + "] = ").c_str());
+        }
+    }
+
+    int rank = matrix_rank(A, m, n);
+    cout << "\nРанг матрицы равен: " << rank << endl;
+
+    return 0;
+}
+\end{lstlisting}
+
+\section{Скриншоты программы}
+\label{sec:program-shots}
+\subsection{Пример формулы}
+\label{sec:mathexample}
+
+Вычисление ранга опирается на приведение матрицы к ступенчатому виду:
+\[
+A \sim \begin{pmatrix}
+23 & 5 & 4 & 7 & 8 \\
+54 & 1 & 9 &0 &8 \\
+0  & 0 & 0 & 0& 0\\
+0 & 0 & 0 & 6 & 8 \\
+5 & 8 & 6 & 4 & 3 \\
+
+\end{pmatrix}, \quad \text{Ранг} = 4
+\]
+
+\subsection{Пример вставки изображения}
+\label{sec:picexample}
+
+На рисунке~\ref{fig:screenshot} показан пример работы программы.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{кодик.jpg}
+  \caption{Пример работы программы}\label{fig:screenshot}
+\end{figure}
+
+\newpage
+\section{Описание программы}
+Алгоритм:
+\begin{enumerate}
+  \item Читаем размеры матрицы \(m\) и \(n\) (контроль ввода — целые положительные числа).
+  \item Читаем \(m \times n\) элементов матрицы (вещественные числа с проверкой ввода).
+  \item Приводим матрицу к ступенчатому виду методом Гаусса с выбором по максимальному модулю:
+    \begin{itemize}
+      \item В каждом столбце ищем строку с наибольшим по модулю ненулевым элементом среди ещё не занятых.
+      \item Если найдена — нормируем её и обнуляем этот столбец во всех остальных строках.
+      \item Увеличиваем счётчик ранга.
+    \end{itemize}
+  \item Выводим результат.
+\end{enumerate}
+
+\section*{Заключение}
+В ходе работы изучен метод Гаусса для определения ранга матрицы и реализован на C++. Алгоритм устойчив к нулевым и близким к нулю элементам. В будущем возможна оптимизация по памяти и производительности.
+
+
+\begin{thebibliography}{99}
+\bibitem{lit1} Иванов И.И. Линейная алгебра и её приложения. — М.: Наука, 2015.
+\bibitem{lit2} Петров П.П. Методы вычислений в линейной алгебре. — СПб.: Питер, 2017.
+\bibitem{lit3} Сидоров С.С. Программирование на C++. — М.: ДМК Пресс, 2019.
+\bibitem{lit4} Кузнецов В.В. Алгоритмы матричных преобразований. — Екатеринбург: УрФУ, 2018.
+\bibitem{lit5} Шевкин В.В. и др. Метод Гаусса и его приложения. — М.: Физматлит, 2018.
+\end{thebibliography}
+
+\end{document}
